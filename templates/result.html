@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Result</title>
+</head>
+<body>
+    <h1>Search Result</h1>
+    {% if results %}
+        <ul>
+            {% for result in results %}
+                <li>
+                    <strong>Judul Film:</strong> {{ result[0] }}<br>
+                    <strong>Sinopsis:</strong> {{ result[1] }}<br>
+                    <strong>Genre:</strong> {{ result[2] }}<br>
+                    {% if result[3] > 50 %}
+                        <strong>Persentase Kesamaan:</strong> {{ "%.2f" % result[3] }}%<br>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Tidak ada hasil yang sesuai.</p>
+    {% endif %}
+    <a href="/">Kembali ke Halaman Utama</a>
+</body>
+</html>
